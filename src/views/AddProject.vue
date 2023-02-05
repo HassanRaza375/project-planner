@@ -45,6 +45,7 @@ export default {
           }),
         }).then(() => {
           this.$router.push("/");
+          this.$router.push("/");
         });
       } else {
         fetch("http://localhost:3000/projects/", {

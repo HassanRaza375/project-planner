@@ -1,0 +1,34 @@
+{
+  "projects": [
+    {
+      "id": 2,
+      "title": "Production Unit",
+      "details": "Loream ipsum",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "title": "Marketing Emails",
+      "details": "Loream ipsum",
+      "complete": false
+    },
+    {
+      "id": 4,
+      "title": "Builder",
+      "details": "Loream ipsum",
+      "complete": false
+    },
+    {
+      "title": "WebDeveloper",
+      "details": "Okay to go web developer",
+      "complete": true,
+      "id": 5
+    },
+    {
+      "title": "App Developer",
+      "complete": true,
+      "details": "App developer",
+      "id": 6
+    }
+  ]
+}

@@ -1,18 +1,46 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <li v-for="user in User" :key="user.id">
+        <SingleProject
+          :Project="user"
+          @delete="deleteHandler"
+          @Complete="CompleteHandler"
+        />
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import SingleProject from "../components/SingleProject.vue";
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+  components: { SingleProject },
+  data() {
+    return {
+      User: [],
+    };
+  },
+  async mounted() {
+    await fetch("http://localhost:3000/projects")
+      .then((e) => e.json())
+      .then((e) => (this.User = e));
+    console.log(this.User);
+  },
+  methods: {
+    CompleteHandler(id) {
+      let p = this.User.find((e) => {
+        return (e.id = id);
+      });
+      p.complete = !p.complete;
+      debugger;
+    },
+    deleteHandler(Id) {
+      this.User = this.User.filter((e) => e.id !== Id);
+      console.log(this.User);
+      debugger;
+    },
+  },
+};
 </script>
